@@ -1,3 +1,5 @@
+#l "Tasks/Clean.cake"
+
 Task("Build").Does(() => {
     DotNetBuild("CakeConsole.sln");
 });

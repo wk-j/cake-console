@@ -2,6 +2,7 @@
 
 open System
 open CakeConsole.Executor
+open CakeConsole.Parser
 
 type TaskName = TaskName of string
 
@@ -52,9 +53,13 @@ let readInput (message:string) (options:(string) list) =
 
 let rec getTask() =
     let f = sprintf
-    let options = [
-        ("Build")
-    ] 
+    let tasks = parseFile(System.IO.FileInfo("build.cake"))
+    let options = 
+        seq {
+            for task in tasks do
+                yield (task)
+        } |> Seq.toList
+        
     let task = readInput "Select task" options
     let execute cmd args =
         write <| Info(f " %s %s" cmd args)
