@@ -71,10 +71,10 @@ let rec getTask() =
         match os with
         | PlatformID.MacOSX | PlatformID.Unix ->
             let cmd = "./build.sh"
-            let args = sprintf "--target %s" name
+            let args = sprintf "--target \"%s\"" name
             execute cmd args
         | _ -> 
             let cmd = "powershell"
-            let args = "-ExecutionPolicy ByPass -File build.ps1 -target " + name
+            let args = sprintf "-ExecutionPolicy ByPass -File build.ps1 -target \"%s\""  name
             execute cmd args
     | None -> getTask() 
