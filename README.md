@@ -7,7 +7,7 @@
 ## Installation
 
 ```
-npm install -g  cake-console
+> npm install -g  cake-console
 ```
 
 ## Usage
@@ -15,7 +15,11 @@ npm install -g  cake-console
 Start console
 
 ```
-cake-console
+> cake-console
 ```
 
-Exit `CTRL + c`
+Exit 
+
+```
+> CTRL + c
+```
