@@ -1,0 +1,8 @@
+tools
+packages
+*.fs
+*.cs
+*.fsproj
+*.cake
+*.sh
+*.ps1
