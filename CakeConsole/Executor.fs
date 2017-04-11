@@ -35,7 +35,7 @@ let executeCommand cmd args=
     let ps = new Process()
     ps.StartInfo <- info
     ps.Start() |> ignore
-    
+
     ps.OutputDataReceived.Add(outputHandler)
     ps.BeginOutputReadLine()
 

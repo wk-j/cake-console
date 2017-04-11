@@ -16,18 +16,21 @@ let getContent (file: FileInfo) =
 
 let rec parseFile (file:FileInfo) =
     let lines = getContent(file)
-    let tasks = 
+    let tasks =
         query {
             for line in lines do
             where (line.StartsWith("Task(\""))
             select (line.Trim())
         }
 
-    let loads = 
+    let loads =
         query {
             for line in lines do
             where (line.StartsWith("#l"))
-            let load = line.Replace("#load", String.Empty).Replace("#l", String.Empty).Replace("\"", String.Empty).Trim()
+            let load =
+              line.Replace("#load", String.Empty)
+                .Replace("#l", String.Empty)
+                .Replace("\"", String.Empty).Trim()
             select (load)
         }
 

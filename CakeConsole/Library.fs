@@ -46,7 +46,7 @@ let readInput (message:string) (options:(string) list) =
     match ok with
     | true ->
         if index <= options.Length then
-            options.[index - 1] |> Some 
+            options.[index - 1] |> Some
         else None
     | false ->
         None
@@ -54,27 +54,28 @@ let readInput (message:string) (options:(string) list) =
 let rec getTask() =
     let f = sprintf
     let tasks = parseFile(System.IO.FileInfo("build.cake"))
-    let options = 
+    let options =
         seq {
             for task in tasks do
                 yield (task)
         } |> Seq.toList
-        
+
     let task = readInput "Select task" options
     let execute cmd args =
         write <| Info(f " %s %s" cmd args)
         executeCommand cmd args
         getTask()
 
+
     match task with
-    | Some name -> 
+    | Some name ->
         match os with
         | PlatformID.MacOSX | PlatformID.Unix ->
             let cmd = "./build.sh"
             let args = sprintf "--target \"%s\"" name
             execute cmd args
-        | _ -> 
+        | _ ->
             let cmd = "powershell"
             let args = sprintf "-ExecutionPolicy ByPass -File build.ps1 -target \"%s\""  name
             execute cmd args
-    | None -> getTask() 
+    | None -> getTask()
