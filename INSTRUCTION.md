@@ -1,6 +1,8 @@
 ## Instruction
 
 ```
+chmod +x /usr/lib/node_modules/cake-console/Source/CakeConsole.Core/Dist/Linux/CakeConsole.Core
+
 npm link
 npm unlink
 

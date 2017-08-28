@@ -7,7 +7,14 @@
 ## Installation
 
 ```
-> npm install -g  cake-console
+npm install -g  cake-console
+```
+
+## Linux
+
+```
+npm install -g  cake-console
+chmod +x /usr/lib/node_modules/cake-console/Source/CakeConsole.Core/Dist/Linux/CakeConsole.Core
 ```
 
 ## Usage
@@ -15,11 +22,11 @@
 Start console
 
 ```
-> cake-console
+cake-console
 ```
 
 Exit 
 
 ```
-> CTRL + c
+CTRL + c
 ```
