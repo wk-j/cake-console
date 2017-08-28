@@ -7,7 +7,7 @@ type Message =
     | Info of string
     | Error of string
 
-let write message = 
+let write message =
 
     let write (msg:string) color =
         if not <| String.IsNullOrEmpty(msg) then
@@ -26,7 +26,7 @@ let executeCommand cmd args=
     info.UseShellExecute <- false
     info.RedirectStandardError <- true
 
-    let outputHandler (s:DataReceivedEventArgs) = 
+    let outputHandler (s:DataReceivedEventArgs) =
         s.Data |> Info |> write
 
     let errorHandler (s: DataReceivedEventArgs) =

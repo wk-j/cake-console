@@ -4,6 +4,7 @@
 *.log
 
 tools
+Dist
 
 # build
 [Oo]bj/

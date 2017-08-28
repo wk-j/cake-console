@@ -1,12 +1,18 @@
 #!/usr/bin/env node
 
 var spawn = require('child_process').spawn;
-//var process = require("process");
 
-var file = __dirname + "/CakeConsole/bin/Debug/CakeConsole.exe";
-
-if(process.platform === "win32") {
-    spawn(file, [], { stdio: "inherit"});
-} else {
-    spawn("mono", [file] , {stdio: "inherit"});
+function getPath() {
+	if(process.platform === "win32") {
+		return __dirname + "/Source/CakeConsole.Core/Dist/Windows/CakeConsole.Core.exe";
+	}
+	else if(process.platform === "darwin") {
+		return __dirname + "/Source/CakeConsole.Core/Dist/MacOS/CakeConsole.Core";
+	} 
+	else {
+		return __dirname + "/Source/CakeConsole.Core/Dist/Linux/CakeConsole.Core";
+	}
 }
+
+var path = getPath();
+spawn(path, [], { stdio: "inherit"});

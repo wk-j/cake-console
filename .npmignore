@@ -6,3 +6,5 @@ packages
 *.cake
 *.sh
 *.ps1
+**/bin
+**/debug
